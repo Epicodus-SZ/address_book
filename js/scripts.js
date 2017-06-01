@@ -4,12 +4,15 @@ $(document).ready(function() {
     var formName = $("#name").val();
     var formAddress = $("#address").val();
 
-    //$("div.receipt").toggle();
-    $("div#contactList").append("<button class='btn btn-primary functionClick'>" + formName + "</button>");
-     $("#ContactCard").toggle();
+    $("div#contactList").append("<button id='"+formName+"' class='btn btn-primary functionClick'>" + formName + "</button>");
+
+    $("div#contactCardSpace").append("<div class='contact' id='"+formName+"'><p>Name:" + formName + "</p><p>Address:" + formAddress + "</p></div>");
+
+    $("button#"+formName).click(function(event) {
+      $("div#"+formName).toggle();
+
+    });
+
   });
 
-  $(".close").click(function() {
-    $(".card").hide();
-  });
 });
